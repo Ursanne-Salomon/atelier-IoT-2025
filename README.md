@@ -18,7 +18,22 @@ Créer une solution IoT complète permettant de :
 Architecture du projet
 ----------------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cssCopier[Arduino + Capteur]        │        ▼  [Sigfox Backend]        │        ▼  [serveur PHP: recevoir.php] ──► [Base de données MySQL]                                       ▲                                       │                                       ▼                               [API PHP: api.php]                                       │                            [Dashboard Web]                                       ▼                      [HTML/CSS + JS + Chart.js]   `
+[Arduino + Capteur]
+      │
+      ▼
+[Sigfox Backend]
+      │
+      ▼
+[serveur PHP: recevoir.php] ──► [Base de données MySQL]
+                                     ▲
+                                     │
+                                     ▼
+                              [API PHP: api.php]
+                                     │
+                              [Dashboard Web]
+                                     ▼
+                          [HTML/CSS + JS + Chart.js]
+
 
 Étapes du projet
 ----------------
