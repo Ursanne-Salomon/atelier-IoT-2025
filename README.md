@@ -18,22 +18,7 @@ Créer une solution IoT complète permettant de :
 Architecture du projet
 ----------------------
 
-[Arduino + Capteur]
-      │
-      ▼
-[Sigfox Backend]
-      │
-      ▼
-[serveur PHP: recevoir.php] ──► [Base de données MySQL]
-                                     ▲
-                                     │
-                                     ▼
-                              [API PHP: api.php]
-                                     │
-                              [Dashboard Web]
-                                     ▼
-                          [HTML/CSS + JS + Chart.js]
-
+[Arduino + Capteur] ──► [Sigfox Backend] ──► [serveur PHP: recevoir.php] ──► [Base de données MySQL] ──► [API PHP: api.php] ──► [Dashboard Web] ──► [HTML/CSS + JS]
 
 Étapes du projet
 ----------------
@@ -55,8 +40,12 @@ Architecture du projet
     
 
 **Exemple de payload JSON reçu** :
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   jsonCopier{    "device": "DEVICE_ID",    "time": 1712668412,    "data": "0000e0410000b041",    "seqNum": 104  }   `
+{
+  "device": "DEVICE_ID",
+  "time": 1712668412,
+  "data": "0000e0410000b041",
+  "seqNum": 104
+}
 
 Scripts PHP utilisés
 --------------------
@@ -87,8 +76,14 @@ Structure de la base de données
 -------------------------------
 
 **Base** : gi50x\_IoT**Table** : mesures
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sqlCopierCREATE TABLE mesures (      id INT AUTO_INCREMENT PRIMARY KEY,      device VARCHAR(255),      time DATETIME,      temperature FLOAT,      humidity FLOAT,      seqNum INT DEFAULT NULL  );   `
+CREATE TABLE mesures (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    device VARCHAR(255),
+    time DATETIME,
+    temperature FLOAT,
+    humidity FLOAT,
+    seqNum INT DEFAULT NULL
+);
 
 Site web – Dashboard
 --------------------
@@ -115,7 +110,8 @@ Site web – Dashboard
 
 ### Exemple de données affichées
 
-IDDeviceHeureTempératureHumidité1818E1F509/04/2025 10:38:1628.52°C50.00%
+ID	Device	Heure	Température	Humidité
+18	18E1F5	09/04/2025 10:38:16	28.52°C	50.00%
 
 Détection des messages manqués
 ------------------------------
@@ -146,13 +142,15 @@ Fonctionnalités implémentées
     
 *   **Pagination dynamique**
     
-*   Vérification de séquence seqNum
-    
+*   Vérification de séquence seqNum (Fonctionne pas)
+      
 *   **Rafraîchissement automatique** des données
     
 
 Améliorations possibles
 -----------------------
+
+*   Vérification de séquence seqNum
 
 *   Envoi d’un **mail** en cas de perte de messages (seqNum)
     
@@ -166,9 +164,9 @@ Améliorations possibles
 Auteur
 ------
 
-*   **Nom** : \[Ton prénom NOM\]
+*   **Nom** : Ursanne Salomon
     
-*   **Classe** : EMT-INF
+*   **Classe** : INF3A
     
 *   **Date** : Avril 2025
     
@@ -181,8 +179,6 @@ Conclusion
 Le projet est entièrement fonctionnel :
 
 *   Données récupérées **en temps réel**
-    
-*   Sécurité via **vérification des séquences**
     
 *   Interface claire, fluide, **responsive**
     
