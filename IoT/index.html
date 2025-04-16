@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard IoT</title>
+
+    <!-- Ton CSS principal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js pour le graphique -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h2>Mesures IoT en temps réel</h2>
+
+    <!-- Tableau des mesures -->
+    <table id="mesures">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Device</th>
+                <th>Heure</th>
+                <th>Température (°C)</th>
+                <th>Humidité (%)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Pagination dynamique -->
+    <div id="pagination" style="margin: 20px; text-align: center;"></div>
+
+    <!-- Graphique -->
+    <canvas id="chart"></canvas>
+</div>
+
+<!-- Ton JavaScript principal -->
+<script src="script.js"></script>
+</body>
+</html>
